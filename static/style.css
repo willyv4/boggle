@@ -1,0 +1,116 @@
+html {
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: whitesmoke;
+    font-size: large;
+}
+
+input, button {
+    font-family: 'Chakra Petch', sans-serif;
+}
+div {
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+td {
+    border: 1px solid black;
+    width: 35px;
+    height: 35px;
+    padding: 10px;
+    text-align: center;
+}
+
+#game-board {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+    width: 40%;
+    height: 60%;
+    padding: 10px;
+    border-radius: 2px;
+    border: rgb(76, 161, 137) 3px solid ;
+}
+
+#game-board {
+    filter:blur(3.5px);
+}
+
+#boggle-form {
+    padding: 10px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+input, button {
+    outline: none;
+    border: rgb(76, 161, 137) 2px solid;
+    border-radius: 2px;
+    transition: .5s ease-in-out;
+    height: 25px;
+    font-size: large;
+}
+
+#form-button {
+    height: 31px;
+    background-color: rgb(76, 161, 137);
+    color: whitesmoke
+}
+
+#form-button:hover {
+    color:rgb(231, 139, 129);
+    background-color: whitesmoke;
+}
+
+p:hover {
+    color:rgb(231, 139, 129);
+}
+
+p {
+    transition: .5s ease-in-out;
+}
+
+#new-game{
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    background-color:rgb(231, 139, 129);
+    border: rgb(231, 139, 129) 2px solid;
+ }
+
+input:hover, button:hover {
+    border: rgb(231, 139, 129) 2px solid ;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+button:hover, #new-game:hover {
+    color:rgb(231, 139, 129);
+    background-color: whitesmoke;
+}
+
+label {
+    color:rgb(231, 139, 129);
+}
+
+
+.form-item {
+    margin: 5px;
+}
+
+#nav-bar {
+    background-color: rgb(39, 39, 39);
+    color: rgb(76, 161, 137);
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    align-items: center;
+    justify-content: space-around;
+    margin: -8px ;
+}

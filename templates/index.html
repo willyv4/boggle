@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav id="nav-bar">
+      <button id="new-game">START GAME</button>
+      <p id="round">Round 1</p>
+      <p id="count-down">Time: 60</p>
+      <p id="score">Score: 0</p>
+      <p id="hi-score"></p>
+    </nav>
+
+    <div><p id="message"></p></div>
+
+    <form id="boggle-form">
+      <label for="guess" class="form-item"> TAKE A GUESS </label>
+      <input
+        class="form-item"
+        type="text"
+        name="guess"
+        id="boggle-input"
+        autocomplete="off"
+      />
+      <input id="form-button" class="form-item" type="submit" value="SUBMIT" />
+    </form>
+
+    <section id="game-board">
+      {% for item in board %}
+      <table>
+        <tr>
+          {% for letter in item %}
+          <td>{{letter}}</td>
+          {% endfor%}
+        </tr>
+      </table>
+      {% endfor %}
+    </section>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
