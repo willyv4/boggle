@@ -170,7 +170,7 @@ const handlNewGame = (event) => {
   }
 
   $("#count-down").addClass("pulse");
-  $("#new-game").text("New Game");
+  $(".new-game").text("New Game");
   $("#game-board").css("filter", "blur(0px)");
 };
 
