@@ -17,14 +17,14 @@ td {
     height: 55px;
     padding: 10px;
     text-align: center;
-    font-weight: 800;
+    font-size: 25px;
 }
 
 #game-board {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 8%;
+    margin-top: 100px;
     width: fit-content;
     height: 60%;
     padding: 10px;
@@ -33,7 +33,7 @@ td {
 }
 
 #game-board {
-    filter:blur(4.5px);
+    filter:blur(5.5px);
 }
 
 #boggle-form {
@@ -41,8 +41,31 @@ td {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: -35px;
     margin-left: 30px;
+}
+
+#count-down {
+  position: relative;
+  width: 160px;
+  height: 40px;
+  border-radius: 2px;
+  background-color: rgb(39, 39, 39);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+  color: #fff;
+  text-align: center;
+  margin-right: -10px;
+  margin-left: -5px;
+}
+
+#info-columb {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 input, button {
@@ -50,13 +73,13 @@ input, button {
     border: rgb(76, 161, 137) 2px solid;
     border-radius: 2px;
     transition: .5s ease-in-out;
-    height: 25px;
+    height: 30px;
     font-size: large;
     font-family: 'Chakra Petch', sans-serif;
 }
 
 #form-button {
-    height: 31px;
+    height: 35px;
     background-color: rgb(76, 161, 137);
     color: whitesmoke;
 }
@@ -112,22 +135,6 @@ label {
     justify-content: space-around;
     margin: -8px ;
 }
-
-
-#count-down {
-    position: relative;
-    width: 70px;
-    height: 70px;
-    border-radius: 2px;
-    background-color: rgb(39, 39, 39);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #fff;
-    text-align: center;
-    margin-left: 6%;
-  }
   
   .pulse {
     font-size: 24px;
@@ -138,10 +145,10 @@ label {
   
   @keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 rgba(231, 139, 129, 0.612);;
+      box-shadow: 0 0 0 0 rgb(39, 39, 39);
     }
     90% {
-      box-shadow: 0 0 0 15px rgba(50, 205, 50, 0);
+      box-shadow: 0 0 0 13px rgba(50, 205, 50, 0);
     }
     100% {
       box-shadow: 0 0 0 0 rgba(50, 205, 50, 0);
@@ -149,24 +156,18 @@ label {
   }
 
   #head-container {
-      background-color: #fff;
-      border-bottom: rgb(76, 161, 137) 5px solid;
+      background-color: white;
+      border-bottom: rgb(39, 39, 39) solid 40px;
+      border-radius: 5px;
       display: flex;
       flex-direction: row;
-      height: 100px;
-      margin: -8px;
-      margin-top: 9px;
+      height: 60px;
+      width: 510px;
       align-items: center;  
       justify-content: center;
-  }
-
-  
-  #info-columb {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-left: -15%;
+      padding: 8px;
+      margin-top: 10px;
+      box-shadow: 0px 0px 20px -10px rgb(105, 105, 105);
   }
 
   .alert-container {
@@ -202,9 +203,9 @@ label {
   #message {
     position: absolute;
     opacity: 0;
-    color: black;
+    color: whitesmoke;
     transition: .5s ease-in-out;
-    margin-bottom: -20px;
+    margin-bottom: -85px;
   }
   
   @media (max-width: 450px) {
@@ -213,9 +214,6 @@ label {
     }
     input, button {
       font-size: medium;
-    }
-    #count-down {
-        margin-left: 5%;
     }
     #boggle-form {
         margin-left: 20%;
