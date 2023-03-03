@@ -17,6 +17,7 @@ td {
     height: 55px;
     padding: 10px;
     text-align: center;
+    font-weight: 800;
 }
 
 #game-board {
@@ -185,18 +186,9 @@ label {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
-    width: 40%;
-    height: 15%;
+    width: 200px;
+    min-height: 125px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  .alert-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
   }
   
   .alert-button:hover {
@@ -208,11 +200,11 @@ label {
   }
   
   #message {
-    position: fixed;
+    position: absolute;
     opacity: 0;
     color: black;
     transition: .5s ease-in-out;
-    margin-bottom: -15px;
+    margin-bottom: -20px;
   }
   
   @media (max-width: 450px) {
