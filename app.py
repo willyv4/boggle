@@ -15,6 +15,8 @@ def sesh():
     session['boards'] = []
     session['boards'].append(board)
 
+    session.pop("guesses", None)
+
     return redirect('/home')
 
 
@@ -30,8 +32,14 @@ def guess_input():
     board = session.get('boards', [])
     guess = request.json["inputVal"]
 
+    guesses = session.get("guesses", [])
+    guesses.append(guess)
+
+    session["guesses"] = guesses
+    print(guesses)
+
     data = boggle_game.check_valid_word(board[0], guess)
-    response = {"result": data, "word": guess}
+    response = {"result": data, "word": guess, "guessArr": guesses}
 
     return jsonify(response)
 
@@ -40,6 +48,7 @@ def guess_input():
 def game_over():
     score = request.json["score"]
     scores = session.get("scores", [])
+
     scores.append(score)
     session["scores"] = scores
 

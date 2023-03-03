@@ -45,35 +45,39 @@ class BoggleGame {
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
   handleAxiosResponse(response) {
     const result = response.data.result;
-    const word = response.data.word.toUpperCase();
+    const guesses = response.data.guessArr;
     const $message = $("#message");
     let msg;
-    let arr = [];
+    let word;
 
-    if (result === "ok") {
-      msg = `Good job, ${word} is a word!!!`;
-      arr.push(word);
+    for (let guess of guesses) {
+      word = guess;
+    }
+
+    // sort the array before checking for duplicates
+    const sortedGuesses = guesses.slice().sort();
+
+    const set = new Set(sortedGuesses);
+
+    if (sortedGuesses.length !== set.size) {
+      msg = `NO DUPLICATES`;
+      this.handleScore(0);
     } else {
-      msg = `Nice Try but ${word}, isn't on the board or it isn't a word.`;
+      if (result === "ok") {
+        msg = `Good job, ${word.toUpperCase()} is a word!!!`;
+        this.handleScore(word.length);
+      } else {
+        msg = `Nice Try, ${word.toUpperCase()} is not on board or not word.`;
+      }
     }
 
     $message.text(msg);
-    this.handleScore(arr);
   }
 
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-  handleScore(words) {
-    for (let letters of words) {
-      this.scoreTracker.push(letters.length);
-    }
-
-    const total = this.scoreTracker.reduce((a, b) => {
-      let answer = a + b;
-      return answer;
-    }, 0);
-
-    this.gameScore = total;
-    $("#score").text(`Score: ${total}`);
+  handleScore(num) {
+    this.gameScore += num;
+    $("#score").text(`Score: ${this.gameScore}`);
   }
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
   handleTimer() {
@@ -85,6 +89,7 @@ class BoggleGame {
         clearInterval(timer);
         alert("GAMEOVER");
 
+        $("#count-down").removeClass("pulse");
         this.timeStarted = false;
         this.scoreTracker = [];
       }
@@ -107,10 +112,11 @@ const handlNewGame = (event) => {
     game.timeStarted = true;
   }
 
-  if (game.countDown === 0) {
+  if (game.countDown < 60) {
     window.location.href = "/";
   }
 
+  $("#count-down").addClass("pulse");
   $("#new-game").text("New Game");
   $("#game-board").css("filter", "blur(0px)");
 };

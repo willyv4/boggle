@@ -15,24 +15,34 @@
     <nav id="nav-bar">
       <button id="new-game">START GAME</button>
       <p id="round">Round 1</p>
-      <p id="count-down">Time: 60</p>
-      <p id="score">Score: 0</p>
+      <p id="score">Score 0</p>
       <p id="hi-score"></p>
     </nav>
 
-    <div><p id="message"></p></div>
+    <div id="head-container">
+      <div id="count-down">
+        <span id="count-down-text">Time: 60</span>
+      </div>
 
-    <form id="boggle-form">
-      <label for="guess" class="form-item"> TAKE A GUESS </label>
-      <input
-        class="form-item"
-        type="text"
-        name="guess"
-        id="boggle-input"
-        autocomplete="off"
-      />
-      <input id="form-button" class="form-item" type="submit" value="SUBMIT" />
-    </form>
+      <div><p id="message"></p></div>
+
+      <form id="boggle-form">
+        <label for="guess" class="form-item"> TAKE A GUESS </label>
+        <input
+          class="form-item"
+          type="text"
+          name="guess"
+          id="boggle-input"
+          autocomplete="off"
+        />
+        <input
+          id="form-button"
+          class="form-item"
+          type="submit"
+          value="SUBMIT"
+        />
+      </form>
+    </div>
 
     <section id="game-board">
       {% for item in board %}
