@@ -13,7 +13,7 @@
   </head>
   <body>
     <nav id="nav-bar">
-      <button id="new-game">START GAME</button>
+      <button class="new-game">START GAME</button>
       <p id="round">Round 1</p>
       <p id="score">Score 0</p>
       <p id="hi-score"></p>
@@ -24,24 +24,34 @@
         <span id="count-down-text">Time: 60</span>
       </div>
 
-      <div><p id="message"></p></div>
+      <div id="info-columb">
+        <form id="boggle-form">
+          <label for="guess" class="form-item"></label>
+          <input
+            class="form-item"
+            type="text"
+            name="guess"
+            id="boggle-input"
+            autocomplete="off"
+            placeholder="TAKE A GUESS"
+          />
+          <input
+            id="form-button"
+            class="form-item"
+            type="submit"
+            value="SUBMIT"
+          />
+        </form>
 
-      <form id="boggle-form">
-        <label for="guess" class="form-item"> TAKE A GUESS </label>
-        <input
-          class="form-item"
-          type="text"
-          name="guess"
-          id="boggle-input"
-          autocomplete="off"
-        />
-        <input
-          id="form-button"
-          class="form-item"
-          type="submit"
-          value="SUBMIT"
-        />
-      </form>
+        <p id="message"></p>
+      </div>
+    </div>
+
+    <div class="alert-container">
+      <div class="alert-content">
+        <h2>GAMEOVER</h2>
+        <button class="new-game">NEW GAME</button>
+      </div>
     </div>
 
     <section id="game-board">

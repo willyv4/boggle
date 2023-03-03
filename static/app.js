@@ -3,6 +3,7 @@ class BoggleGame {
   constructor() {
     this.$form = $("#boggle-form");
     this.$input = $("#boggle-input");
+    this.$message = $("#message");
     this.scoreTracker = [];
     this.timeStarted = false;
     this.countDown = 60;
@@ -21,6 +22,20 @@ class BoggleGame {
       const guess = this.$input.val();
       this.makeGuess(guess);
     }
+    if (this.countDown === 60) {
+      this.makeGuess(null);
+      this.$message.text("START GAME TO SUBMIT GUESSES");
+    }
+
+    this.$message.css("opacity", 1);
+
+    // Hide the element after 3 seconds
+    setTimeout(
+      function () {
+        this.$message.css("opacity", 0);
+      }.bind(this),
+      2000
+    );
   }
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
   makeGuess(guess) {
@@ -46,7 +61,6 @@ class BoggleGame {
   handleAxiosResponse(response) {
     const result = response.data.result;
     const guesses = response.data.guessArr;
-    const $message = $("#message");
     let msg;
     let word;
 
@@ -67,11 +81,11 @@ class BoggleGame {
         msg = `Good job, ${word.toUpperCase()} is a word!!!`;
         this.handleScore(word.length);
       } else {
-        msg = `Nice Try, ${word.toUpperCase()} is not on board or not word.`;
+        msg = `${word.toUpperCase()}, is not on board, or not word.`;
       }
     }
 
-    $message.text(msg);
+    this.$message.text(msg);
   }
 
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -87,7 +101,7 @@ class BoggleGame {
         console.log(this.gameScore);
         this.sendGameData();
         clearInterval(timer);
-        alert("GAMEOVER");
+        $(".alert-container").css("display", "flex");
 
         $("#count-down").removeClass("pulse");
         this.timeStarted = false;
@@ -122,4 +136,4 @@ const handlNewGame = (event) => {
 };
 
 const game = new BoggleGame();
-$("#new-game").on("click", handlNewGame);
+$(".new-game").on("click", handlNewGame);
