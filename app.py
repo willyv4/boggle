@@ -33,8 +33,9 @@ def root():
     """
 
     board = session.get('boards', [])
+    board = board[0]
 
-    return render_template("index.html", board=board[0])
+    return render_template("index.html", board=board)
 
 
 @app.route("/guess", methods=["POST"])

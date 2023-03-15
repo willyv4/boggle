@@ -42,7 +42,7 @@ class BoggleGame {
   }
 
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  makeGuess(guess) {
+  async makeGuess(guess) {
     /*
     Sends a POST request to the server with the user's guess.
      */
@@ -51,10 +51,11 @@ class BoggleGame {
         inputVal: guess,
       })
       .then(this.handleAxiosResponse);
+    console.log(axios);
   }
 
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  getHiScore() {
+  async getHiScore() {
     // Sends a GET request to the server to retrieve the high score and round information.
 
     axios.get("/highscore").then((response) => {
@@ -80,8 +81,8 @@ class BoggleGame {
     let word = guesses[guesses.length - 1];
     let msg;
 
-    // if the user's guess is a duplicate and displays a message
-    // if the guess is a valid word or not, while updating the user's score.
+    // chekcs if the user's guess is a duplicate and displays a message
+    // checks if the guess is a valid word or not, while updating the user's score.
     if (this.hasDuplicate(word, guesses)) {
       msg = `NO DUPLICATES`;
       this.handleScore(0);
