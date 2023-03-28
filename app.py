@@ -25,19 +25,6 @@ def sesh():
     return render_template('index.html', board=board)
 
 
-# @app.route("/home", methods=["GET", "POST"])
-# def root():
-#     """
-#     Render the home page of the game.
-#     If a game board is stored in the session, it is passed to the template to be displayed.
-#     """
-
-#     board = session.get('boards', [])
-#     board = board[0]
-
-#     return render_template("index.html", board=board)
-
-
 @app.route("/guess", methods=["POST"])
 def guess_input():
     """
