@@ -162,11 +162,11 @@ label {
       display: flex;
       flex-direction: row;
       height: 60px;
-      width: 510px;
+      width: 520px;
       align-items: center;  
       justify-content: center;
       padding: 8px;
-      margin-top: 10px;
+      margin-top: 30px;
       box-shadow: 0px 0px 20px -10px rgb(105, 105, 105);
   }
 
@@ -217,5 +217,18 @@ label {
     }
     #boggle-form {
         margin-left: 20%;
+    }
+    #head-container {
+      width: 320px;
+    }
+    #count-down {
+      margin-right: -70px;
+      font-size: x-small;
+      height: 35px;
+      margin-left: 5px;
+    }
+    td {
+      width: 45px;
+      height: 30px;
     }
   }
