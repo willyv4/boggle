@@ -172,7 +172,7 @@ const handlNewGame = (event) => {
 
   $("#count-down").addClass("pulse");
   $(".new-game").text("New Game");
-  $("#game-board").css("filter", "blur(0px)");
+  $(".blur").removeClass();
 };
 
 const game = new BoggleGame();

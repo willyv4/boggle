@@ -32,9 +32,11 @@ td {
     border: rgb(76, 161, 137) 3px solid ;
 }
 
-#game-board {
+.blur {
     filter:blur(5.5px);
 }
+
+
 
 #boggle-form {
     display: flex;
@@ -236,7 +238,7 @@ label {
       width: 140px;
       margin-left: -20px;
     }
-    #game-board {
+    .blur {
       filter:blur(5.5px);
     }
   }
