@@ -15,9 +15,6 @@ class BoggleGame {
 
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   handleSubmit(event) {
-    /*
-     Handles the form submission event
-    */
     event.preventDefault();
 
     // enable/disable guess if game is going or not
@@ -43,9 +40,8 @@ class BoggleGame {
 
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   async makeGuess(guess) {
-    /*
-    Sends a POST request to the server with the user's guess.
-     */
+    //Sends a POST request to the server with the user's guess.
+
     axios
       .post("/guess", {
         inputVal: guess,
